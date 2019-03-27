@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.json.dao.Mims_deviceDao">
+	
+<!-- 	<resultMap type="mims_device" id="deviceBean">
+		<id property="id" column="id"/>
+		<result property="user_id" column="user_id"/>
+		<association property="mims_user" javaType="mims_user">
+			<id property="id" column="id"/>
+			<result property="user_name" column="user_name"/>
+			<result property="password" column="password"/>
+			<result property="e_mail" column="e_mail"/>
+			<result property="phone" column="phone"/>
+			<result property="sex" column="sex"/>
+			<result property="age" column="age"/>
+			<result property="height" column="height"/>
+			<result property="weight" column="weight"/>
+			<result property="user_status" column="user_status"/>
+			<result property="create_time" column="create_time"/>
+			<result property="cancel_time" column="cancel_time"/>
+		</association>
+	</resultMap>
+	
+	<select id="selByUserId" resultMap="deviceBean">
+		select mims_user.id, mims_user.user_name, mims_device.id, mims_device.user_id 
+		from mims_user,mims_device
+  		where mims_user.id=mims_device.user_id and mims_user.user_name=#{user_name}
+	</select> -->
+	
+</mapper>

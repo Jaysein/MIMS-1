@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+body{
+	background-color:#F4F0E5;
+	padding-top: 70px;
+}
+
+/*
+登录界面
+*/
+.login{
+	margin-top:80px;
+	padding: 0 ;
+}
+
+/*
+导航栏
+*/
+.profile{
+	margin-right: 25px;
+}
+
+/*
+用户管理
+*/
+.background{
+	background-color: #FFFFFF;
+}
+
+.position{
+	margin-bottom: 20px;
+}
+
+.search-position{
+	margin-top: 40px;
+}
+
+.navbar-form{
+	position: relative;
+}
+
+.navbar-form button[type="submit"]{
+	position: absolute;
+	top: 20%;
+	right: 20px;
+	background: none;
+	border: none;
+}
+
+/*
+体温数据
+*/
+.verticalAlignment{
+	margin:70px 0 0 0 ;
+}
+
+
+
+

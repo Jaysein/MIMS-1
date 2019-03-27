@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.json.dao.Mims_userDao">	
+	
+	<select id="selByPage" resultType="mims_user" parameterType="map">
+		select * from mims_user
+		<where>	
+			<if test="user_name != null and user_name != '' ">
+				<bind name="user_name" value="'%'+user_name+'%'"/>
+				user_name like #{user_name}
+			</if>
+		</where>
+		limit #{pageStart},#{pageSize}
+	</select>
+	
+	<select id="selCountByPage" resultType="long">
+		select count(*) from mims_user
+	</select>
+	
+</mapper>
