@@ -64,9 +64,8 @@ public class Mims_temperature {
 
 	@Override
 	public String toString() {
-		return "mims_temperature [id=" + id + ", device_id=" + device_id + ", value=" + value + ", time=" + time
+		return "Mims_temperature [id=" + id + ", device_id=" + device_id + ", value=" + value + ", time=" + time
 				+ ", mims_device=" + mims_device + "]";
 	}
-	
 	
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.json.dao.AUDao">
+	<select id="selUserByNameAndPwd" resultType="Mims_user">
+		select * from mims_user where user_name=#{username} and password=#{password}
+	</select>
+	
+	<insert id="insUser" parameterType="Mims_user">
+		insert into mims_user values(#{id}, #{user_name}, #{password},
+			#{e_mail}, #{phone}, #{sex}, #{height}, #{weight}, #{age}, 
+			default, default, #{cancel_time})
+	</insert>
+	
+	<select id="selUserByName" resultType="Mims_user">
+		select * from mims_user where user_name=#{username}
+	</select>
+	
+	<update id="updUserByName" parameterType="Mims_user">
+		update mims_user set e_mail=#{e_mail}, phone=#{phone}, sex=#{sex},
+			height=#{height}, weight=#{weight}, age=#{age}
+			where user_name=#{user_name}
+	</update>
+	
+	
+	<resultMap type="Mims_device" id="deviceBean">
+		<id property="id" column="id"/>
+		<result property="deviceCode" column="deviceCode"/>
+		<result property="create_time" column="create_time"/>
+		<result property="user_id" column="user_id"/>
+		<association property="mims_user" javaType="Mims_user">
+			<id property="id" column="id"/>
+			<result property="user_name" column="user_name" />
+			<result property="password" column="password" />
+			<result property="e_mail" column="e_mail" />
+			<result property="phone" column="phone" />
+			<result property="sex" column="sex" />
+			<result property="age" column="age" />
+			<result property="height" column="height" />
+			<result property="weight" column="weight" />
+			<result property="user_status" column="user_status" />
+			<result property="create_time" column="create_time" />
+			<result property="cancel_time" column="cancel_time" />
+		</association>
+	</resultMap>
+	
+	<select id="selDevByName" resultMap="deviceBean">
+		select * from mims_device d
+		join mims_user u on u.id=d.user_id where u.user_name=#{username}
+	</select>
+
+	
+	<update id="updDevCodeByName" parameterType="java.util.Map">
+		update mims_device set deviceCode=#{deviceCode} where user_id in(
+			select id from mims_user where user_name=#{username})
+	</update>
+	
+	<insert id="insDevCodeByName" parameterType="java.util.Map">
+		insert into mims_device values(default, #{deviceCode}, default, #{user_id})
+	</insert>
+	
+	<update id="updPwdByName" parameterType="java.util.Map">
+		update mims_user set password=#{newPwd} where user_name=#{username}
+	</update>
+</mapper>

@@ -5,15 +5,17 @@
 
 <mapper namespace="com.json.dao.Mims_step_numberDao">
 
-	<resultMap type="mims_step_number" id="stepBean">
+	<resultMap type="Mims_step_number" id="stepBean">
 		<id property="id" column="id"/>
 		<result property="device_id" column="device_id"/>
 		<result property="value" column="value"/>
 		<result property="time" column="time"/>
-		<association property="mims_device" javaType="mims_device">
+		<association property="mims_device" javaType="Mims_device">
 			<id property="id" column="id"/>
+			<result property="deviceCode" column="deviceCode"/>
+			<result property="create_time" column="create_time"/>
 			<result property="user_id" column="user_id"/>
-			<association property="mims_user" javaType="mims_user">
+			<association property="mims_user" javaType="Mims_user">
 				<id property="id" column="id"/>
 				<result property="user_name" column="user_name"/>
 				<result property="password" column="password"/>
@@ -30,48 +32,24 @@
 		</association>
 	</resultMap>
 	
-	<!-- <select id="selByName" resultMap="stepBean">
-		select s.* 
-		from mims_user u 
-		join mims_device d on u.id = d.user_id 
-		join mims_step_number s on s.device_id = d.id where u.user_name=#{user_name}
-		
-	</select> -->
-	
 	<select id="selByTime" parameterType="map" resultMap="stepBean">
-		select s.* 
-		from mims_user u 
-		join mims_device d on u.id = d.user_id 
-		join mims_step_number s on s.device_id = d.id 
+		select s.* from mims_step_number s
+		join mims_device d on d.id=s.device_id
+		join mims_user u on u.id=d.user_id
 		<where>
-			<if test="user_name != null and user != ''">
+			<if test="user_name != null and user_name != ''">
 				u.user_name=#{user_name}
 			</if>
 			<if test="startDate != null">
-				<![CDATA[  and DATE_FORMAT(time, '%Y-%m-%d') >= 
+				<![CDATA[  and DATE_FORMAT(s.time, '%Y-%m-%d') >= 
 				DATE_FORMAT(#{startDate}, '%Y-%m-%d')   ]]>
 			</if>
 			<if test="endDate != null">
-				<![CDATA[  and DATE_FORMAT(time, '%Y-%m-%d') <= 
+				<![CDATA[  and DATE_FORMAT(s.time, '%Y-%m-%d') <= 
                 DATE_FORMAT(#{endDate} , '%Y-%m-%d')    ]]>
 			</if>
 		</where>
 		order by time asc
 	</select>
-
-<!-- 	<select id="selByTime" parameterType="map" resultType="mims_step_number">
-		select * from mims_step_number
-		<where>
-			<if test="startDate != null">
-				<![CDATA[  and DATE_FORMAT(time, '%Y-%m-%d') >= 
-				DATE_FORMAT(#{startDate}, '%Y-%m-%d')   ]]>
-			</if>
-			<if test="endDate != null">
-				<![CDATA[  and DATE_FORMAT(time, '%Y-%m-%d') <= 
-                DATE_FORMAT(#{endDate} , '%Y-%m-%d')    ]]>
-			</if>
-		</where>
-		order by time asc
-	</select> -->
 	
 </mapper>

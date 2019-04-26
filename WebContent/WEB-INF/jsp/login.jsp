@@ -36,7 +36,7 @@ $(function(){
 	<div class="container">
 		<form>
 			<div class="col-sm-4 col-sm-offset-4 login">
-				<h2 class="page-header">用户登录</h2>
+				<h2 class="page-header">运动智能监测系统管理平台</h2>
 				<div class="form-group">
 					<label for="admin_name">用户名</label>
 					<div class="input-group">

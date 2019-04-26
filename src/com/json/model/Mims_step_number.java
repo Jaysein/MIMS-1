@@ -67,6 +67,7 @@ public class Mims_step_number {
 		return "Mims_step_number [id=" + id + ", device_id=" + device_id + ", value=" + value + ", time=" + time
 				+ ", mims_device=" + mims_device + "]";
 	}
+
 	
-	
+
 }

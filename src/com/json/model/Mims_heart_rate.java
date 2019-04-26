@@ -68,5 +68,4 @@ public class Mims_heart_rate {
 				+ ", mims_device=" + mims_device + "]";
 	}
 	
-	
 }

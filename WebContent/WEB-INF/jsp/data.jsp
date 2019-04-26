@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="row">
-			<div class="col-sm-6">a</div>
+			<div class="col-sm-6" id="temp" style="height: 400px;"></div>
 			<div class="col-sm-6" id="step" style="height: 400px;"></div>
 		</div>
 		
