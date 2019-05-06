@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户管理</title>
-<script type="text/javascript">
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<link href="/MIMS/css/style.css" rel="stylesheet">
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/MIMS/js/nav.js"></script>
+<!-- <script type="text/javascript">
 $(function(){
 	var pageSize = "${pageinfo.pageSize}";
 	var pageNumber = "${pageinfo.pageNumber}";
@@ -34,24 +38,23 @@ $(function(){
 		return false;
 	});
 });
-</script>
+
+</script> -->
 </head>
 <body>
-	<jsp:include page="head.jsp"></jsp:include>
-	
-	<div class="background container">
+	<div class="background">
 	<div  class="row" style="display: flex;align-items: center;border-bottom: 1px solid #DBDBDB;margin: 0 10px">
 		<div class="col-sm-3 position">
-			<h2 class="">用户管理</h2>
+			<h2 class="">查询用户</h2>
 		</div>
 		
 		<div class="position  col-sm-9" style="margin-bottom: 10px">
-			<form action="/MIMS/userManage" method="post" class="navbar-form text-right">
-				<input type="search" placeholder="搜索" class="form-control" name="user_name"/>
+			<div class="navbar-form text-right">
+				<input id="searchUser" type="search" placeholder="搜索" class="form-control" name="user_name"/>
 				<button type="submit">
-					<span class="glyphicon glyphicon-search"></span>
+					<span class="glyphicon glyphicon-search" onclick="selUser()"></span>
 				</button>
-			</form>
+			</div>
 		</div>
 		
 		</div>	
@@ -71,21 +74,8 @@ $(function(){
 					<th>注销时间</th>
 				</tr>
 			</thead>
-			<tbody>
-				<c:forEach var="user" items="${pageinfo.list}" varStatus="status">
-					<tr>
-						<td>${user.user_name}</td>
-						<td>${user.age}</td>
-						<td>${user.sex}</td>
-						<td>${user.height}</td>
-						<td>${user.weight}</td>
-						<td>${user.e_mail}</td>
-						<td>${user.phone}</td>
-						<td>${user.user_status}</td>
-						<td>${user.create_time}</td>
-						<td>${user.cancel_time}</td>
-					</tr>
-				</c:forEach>
+			<tbody id="userTB">
+				
 			</tbody>
 		</table>	
 		

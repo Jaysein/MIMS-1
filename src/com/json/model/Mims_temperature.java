@@ -5,7 +5,7 @@ import java.util.Date;
 public class Mims_temperature {
 	private int id;
 	private int device_id;
-	private int value;
+	private double value;
 	private Date time;
 	private Mims_device mims_device;
 	
@@ -13,7 +13,7 @@ public class Mims_temperature {
 		
 	}
 
-	public Mims_temperature(int id, int device_id, int value, Date time, Mims_device mims_device) {
+	public Mims_temperature(int id, int device_id, double value, Date time, Mims_device mims_device) {
 		super();
 		this.id = id;
 		this.device_id = device_id;
@@ -38,11 +38,11 @@ public class Mims_temperature {
 		this.device_id = device_id;
 	}
 
-	public int getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
@@ -67,5 +67,7 @@ public class Mims_temperature {
 		return "Mims_temperature [id=" + id + ", device_id=" + device_id + ", value=" + value + ", time=" + time
 				+ ", mims_device=" + mims_device + "]";
 	}
+
+	
 	
 }

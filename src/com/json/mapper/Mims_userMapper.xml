@@ -20,4 +20,35 @@
 		select count(*) from mims_user
 	</select>
 	
+	<select id="selByName" resultType="Mims_user">
+		select * from mims_user where user_name=#{user_name}
+	</select>
+	
+	<insert id="insUser" parameterType="Mims_user">
+		insert into mims_user values(default, #{user_name}, #{password},
+			#{e_mail}, #{phone}, #{sex}, #{height}, #{weight}, #{age}, 
+			default, default, #{cancel_time})
+	</insert>
+	
+	<update id="updUserStateByName" parameterType="java.util.Map">
+		update mims_user set user_status=#{user_status} where user_name=#{user_name}
+	</update>
+	
+	<update id="updUserByName" parameterType="Mims_user">
+		update mims_user set e_mail=#{e_mail}, phone=#{phone}, sex=#{sex},
+			height=#{height}, weight=#{weight}, age=#{age}
+			where user_name=#{user_name}
+	</update>
+	
+	<select id="selCountByTotalUser" resultType="java.lang.Integer">
+		select count(*) from mims_user
+	</select>
+	
+	<select id="selCountByNormalUser" resultType="java.lang.Integer">
+		select count(*) from mims_user where user_status=0
+	</select>
+	
+	<select id="selCountByCancelUser" resultType="java.lang.Integer">
+		select count(*) from mims_user where user_status=1
+	</select>
 </mapper>

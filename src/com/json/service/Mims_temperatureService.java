@@ -9,5 +9,5 @@ import com.json.model.Mims_user;
 public interface Mims_temperatureService {
 	List<Mims_temperature> selByTime(Map<String, Object>timeMap);
 	
-	List<Mims_temperature> selByName(Mims_user user);
+	int insByDeviceCode(Map<String, Object> tempMap);
 }

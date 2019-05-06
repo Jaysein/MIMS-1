@@ -1,27 +1,28 @@
 package com.json.util;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+
 
 public class TimeDifference {
-	public static List<Date> getDatesBetweenTwoDate(Date beginDate, Date endDate){
-		List<Date> date = new ArrayList<Date>();
-		date.add(beginDate);
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(beginDate);
+	public static void main(String[] args) {
+		String sql = "select * from mims_user where user_name=?";
+		String[] info = {"ÕÅÈý"};
 		
-		boolean bContinue = true;
-		while(bContinue) {
-			calendar.add(Calendar.DAY_OF_MONTH, 1);
-			if (endDate.after(calendar.getTime())) {
-				date.add(calendar.getTime());
-			} else {
-				break;
+		ResultSet rs = JDBCUtil.executeQuery(sql, info);
+		try {
+			if (rs != null) {
+				if (rs.next()) {
+					String username = rs.getString("user_name");
+					System.out.println(username);
+				}
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		date.add(endDate);
-		return date;
+		
 	}
 }

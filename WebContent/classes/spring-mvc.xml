@@ -18,7 +18,7 @@
 	
 	<!-- 静态资源 -->
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
-	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
+	<mvc:resources location="/image/" mapping="/image/**"></mvc:resources>
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
 	
 	<!-- 视图解析器 -->

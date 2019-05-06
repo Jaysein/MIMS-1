@@ -11,15 +11,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>数据管理</title>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="/MIMS/css/style.css" rel="stylesheet">
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/MIMS/js/moment-with-locales.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/MIMS/js/datatimpicker.js"></script>
 <script type="text/javascript" src="/MIMS/js/echarts.js"></script>
+<script type="text/javascript" src="/MIMS/js/nav.js"></script>
 </head>
 <body>
-	<jsp:include page="head.jsp"></jsp:include>
-	
-	<div class="background container">
-		<div class="row" style="display: flex;align-items: center;border-bottom: 1px solid #DBDBDB;margin: 0 10px">
+	<div style="margin-top: -0%;height: 100%">
+		<div class="row background" style="display: flex;align-items: center;border-bottom: 1px solid #DBDBDB;margin: 0 10px">
 			<div class="col-sm-3 position">
-				<h2 class="raw">步数数据</h2>
+				<h2 class="raw">数据管理</h2>
 			</div>
 			
 			<div class='col-sm-3 position' style="margin-top: 45px">
@@ -49,7 +55,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="position col-sm-3 " style="margin-top: 30px;">
 				<form action="/MIMS/tempManage" method="post" class="navbar-form text-right">
 					<input type="search" placeholder="搜索" class="form-control" id="data_name"/>
-					
 				</form>
 			</div>	
 			
@@ -58,16 +63,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		
-		<div class="row">
-			<div class="col-sm-6" id="temp" style="height: 400px;"></div>
-			<div class="col-sm-6" id="step" style="height: 400px;"></div>
-		</div>
-		
-		<div class="row">
-			<div class="col-sm-6" id="temp" style="height: 400px;"></div>
-			<div class="col-sm-6" id="heart" style="height: 400px;"></div>
+		<div class="background" style="margin: 0 10px;padding-top: 20dp;margin-top: -2%;padding: 20px;">
+			<div id="data_step" >
+				<div class="text-center position">
+					<h3>步数数据</h3>
+				</div>
+				<div class="row" id="step" style="width: 600px;height: 400px;margin: 0 auto;"></div>
+			</div>
+			
+			<div id="data_temp">
+				<div class="text-center">
+					<h3>体温数据</h3>
+				</div>
+				<div class="row" id="temp" style="width: 600px;height: 400px;margin: 0 auto;"></div>
+			</div>
+			
+			<div id="data_heart">
+				<div class="text-center">
+					<h3>心率数据</h3>
+				</div>
+				<div class="row" id="heart" style="width: 600px;height: 400px;margin: 0 auto;"></div>
+			</div>
 		</div>	
-		
+	</div>
 		<script type="text/javascript">
 		  		//-------------------图表开始--------------------
 		  		function jChart(){
@@ -200,7 +218,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  		           yAxis: [
 		  		               {
 		  		                   type: 'value',
-		  		                   splitArea: { show: true }
+		  		                   splitArea: { show: true },
+				  		           axisLabel : {
+				  		           		formatter: '{value} °C'
+				  		           }
 		  		               }
 		  		           ],
 		  		           series: []
@@ -305,6 +326,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  		}
 		    </script>
 		
-	</div>		
 </body>
 </html>

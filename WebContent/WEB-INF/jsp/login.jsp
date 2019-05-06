@@ -24,7 +24,7 @@ $(function(){
 				if (data.msg == 0) {
 					alert("用户名或密码错误！")
 				} else if (data.msg == 1) {
-					window.location.href = "/MIMS/userManage";
+					window.location.href = "/MIMS/main";
 				}
 			}
 		});
@@ -38,7 +38,7 @@ $(function(){
 			<div class="col-sm-4 col-sm-offset-4 login">
 				<h2 class="page-header">运动智能监测系统管理平台</h2>
 				<div class="form-group">
-					<label for="admin_name">用户名</label>
+					<label for="admin_name" style="color: white;">用户名</label>
 					<div class="input-group">
 						<span class="glyphicon glyphicon-user input-group-addon" id="basic-addon1"></span>
 						<input type="text" class="form-control" aria-describedby="basic-addon1" id="admin_name" name="admin_name" placeholder="admin_name">
@@ -46,7 +46,7 @@ $(function(){
 				 </div>
 		
 				 <div class="form-group">
-				 	<label for="password">密码</label>
+				 	<label for="password" style="color: white;">密码</label>
 				 	<div class="input-group">
 				 		<span class="glyphicon glyphicon-lock input-group-addon"></span>
 						<input type="password" class="form-control" id="password" name="password" placeholder="password">

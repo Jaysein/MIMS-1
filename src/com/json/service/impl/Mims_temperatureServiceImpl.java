@@ -12,7 +12,7 @@ import com.json.model.Mims_temperature;
 import com.json.model.Mims_user;
 import com.json.service.Mims_temperatureService;
 
-@Service
+@Service("temps")
 public class Mims_temperatureServiceImpl implements Mims_temperatureService {
 	
 	@Resource
@@ -24,8 +24,13 @@ public class Mims_temperatureServiceImpl implements Mims_temperatureService {
 	}
 
 	@Override
-	public List<Mims_temperature> selByName(Mims_user user) {
-		return mims_temperatureDao.selByName(user);
+	public int insByDeviceCode(Map<String, Object> tempMap) {
+		System.out.println("+++"+tempMap);
+		int result = mims_temperatureDao.insByDeviceCode(tempMap);
+		if (result > 0) {
+			return result;
+		}
+		return 0;
 	}
 
 }

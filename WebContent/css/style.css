@@ -1,10 +1,13 @@
 @charset "UTF-8";
 
 body{
-    /* background-image: url("/image/bg.jpg");
-    background-size: cover; */
-    background-color:#F4F0E5;
-    padding-top: 70px;
+    background-image: url("../image/bg.jpg");
+    background-size: cover;
+    padding-top: 55px;
+}
+
+div{
+	margin: 0px;
 }
 
 /*
@@ -20,11 +23,69 @@ body{
 }
 
 /*
+主页
+*/
+.bg{
+	background-image: url("../image/bg.jpg");
+    background-size: cover;
+}
+
+
+/*
 导航栏
 */
 .profile{
     margin-right: 25px;
 }
+
+
+/*
+左侧导航栏
+*/
+.nav_background{
+	background-image: url("../image/bg.jpg");
+    background-size: cover;
+    width:100%;
+    height:100%;
+}
+
+.panel-group {
+	max-height: 770px;
+	overflow: auto;
+}
+
+.leftMenu {
+	margin: 10px;
+	margin-top: 5px;
+}
+
+.leftMenu .panel-heading {
+	font-size: 14px;
+	padding-left: 20px;
+	height: 36px;
+	line-height: 36px;
+	color: black;
+	position: relative;
+	cursor: pointer;
+} /*转成手形图标*/
+.leftMenu .panel-heading span {
+	position: absolute;
+	right: 10px;
+	top: 12px;
+}
+
+.leftMenu .menu-item-left {
+	padding: 2px;
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: 6px;
+}
+
+.leftMenu .menu-item-left:hover {
+	background: #C4E3F3;
+	border: 1px solid #1E90FF;
+}
+
 
 /*
 用户管理

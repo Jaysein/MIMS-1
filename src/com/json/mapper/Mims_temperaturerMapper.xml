@@ -52,4 +52,7 @@
 		order by time asc
 	</select>
 	
+	<insert id="insByDeviceCode" parameterType="java.util.Map">
+		insert into mims_temperature values(default, #{deviceCode}, #{temp_value}, default)
+	</insert>
 </mapper>

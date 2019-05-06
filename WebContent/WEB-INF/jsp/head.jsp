@@ -14,6 +14,7 @@
 <script src="/MIMS/js/moment-with-locales.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/MIMS/js/datatimpicker.js"></script>
+<script type="text/javascript" src="/MIMS/js/nav.js"></script>
 </head>
 <body>	
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -24,12 +25,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="" class="navbar-brand"><strong>Monitor</strong>.net</a>
+				<a href="" class="navbar-brand"><strong>Monitor</strong>.monitoring</a>
 			</div>
 			<div class="collapse navbar-collapse"  id="responsive-navbar">
 				<ul class="nav navbar-nav">
-					<li><a href="/MIMS/userManage">用户管理</a></li>
-					<li><a href="/MIMS/dataManage">数据管理</a></li>
+					<li><a href="#" onclick="loadPage('/MIMS/homes')">欢迎界面</a></li>
 				</ul>			
 				<div class="navbar-right">
 					<p class="profile navbar-text navbar-btn ">您好，<a href="#" class="navbar-link">${real_name}</a></p>

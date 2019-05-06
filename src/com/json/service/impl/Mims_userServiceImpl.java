@@ -1,6 +1,7 @@
 package com.json.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -41,6 +42,69 @@ public class Mims_userServiceImpl implements Mims_userService {
 		pageInfo.setTotal(count%pageSize==0?count/pageSize:count/pageSize+1);
 		
 		return pageInfo;
+	}
+
+	@Override
+	public int insUser(Mims_user user) {
+		int result = mims_userDao.insUser(user);
+		if (result > 0) {
+			return result;
+		}
+		return 0;
+	}
+
+	@Override
+	public Mims_user selByName(String user_name) {
+		Mims_user user = mims_userDao.selByName(user_name);
+		if (user != null) {
+			return user;
+		}
+		return null;
+	}
+
+	@Override
+	public int updUserStateByName(Map<String, Object> cancelMap) {
+		int result = mims_userDao.updUserStateByName(cancelMap);
+		if (result > 0) {
+			return result;
+		}
+		return 0;
+	}
+
+	@Override
+	public int updUserByName(Mims_user user) {
+		int result = mims_userDao.updUserByName(user);
+		if (result > 0) {
+			return result;
+		}
+		return 0;
+	}
+
+	@Override
+	public int selCountByTotalUser() {
+		int result = mims_userDao.selCountByTotalUser();
+		if (result >= 0) {
+			return result;
+		}
+		return -1;
+	}
+
+	@Override
+	public int selCountByNormalUser() {
+		int result = mims_userDao.selCountByNormalUser();
+		if (result >= 0) {
+			return result;
+		}
+		return -1;
+	}
+
+	@Override
+	public int selCountByCancelUser() {
+		int result = mims_userDao.selCountByCancelUser();
+		if (result >= 0) {
+			return result;
+		}
+		return -1;
 	}
 
 }

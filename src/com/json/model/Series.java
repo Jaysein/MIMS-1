@@ -41,7 +41,4 @@ public class Series {
 	public String toString() {
 		return "Series [name=" + name + ", type=" + type + ", data=" + data + "]";
 	}
-	
-	 
-
 }
